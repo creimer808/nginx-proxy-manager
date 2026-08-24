@@ -7,13 +7,15 @@ import { PROXY_HOSTS, VIEW } from "src/modules/Permissions";
 import Configuration from "./Configuration";
 import Overview from "./Overview";
 import RuleCatalog from "./RuleCatalog";
+import SyslogExport from "./SyslogExport";
 import styles from "./Security.module.css";
 
-type Tab = "overview" | "rules" | "settings";
+type Tab = "overview" | "rules" | "settings" | "syslog";
 const tabs: { value: Tab; label: string }[] = [
 	{ value: "overview", label: "security.overview" },
 	{ value: "rules", label: "security.rule-catalog" },
 	{ value: "settings", label: "security.configuration" },
+	{ value: "syslog", label: "security.syslog" },
 ];
 /**
  * Event search and raw log browsing moved to /logs. Links from before the split
@@ -63,6 +65,7 @@ function Security() {
 				{tab === "overview" && <Overview />}
 				{tab === "rules" && <RuleCatalog />}
 				{tab === "settings" && <Configuration />}
+				{tab === "syslog" && <SyslogExport />}
 			</main>
 		</HasPermission>
 	);

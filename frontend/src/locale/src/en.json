@@ -1145,6 +1145,156 @@
 	"security.subject": {
 		"defaultMessage": "Subject"
 	},
+	"security.syslog": {
+		"defaultMessage": "Syslog Export"
+	},
+	"security.syslog.app-name": {
+		"defaultMessage": "Application name"
+	},
+	"security.syslog.ca-certificate": {
+		"defaultMessage": "CA certificate"
+	},
+	"security.syslog.ca-help": {
+		"defaultMessage": "Supplying a CA replaces the system root store rather than adding to it, so the receiver certificate must chain to this CA alone."
+	},
+	"security.syslog.client-certificate": {
+		"defaultMessage": "Client certificate"
+	},
+	"security.syslog.client-key": {
+		"defaultMessage": "Client private key"
+	},
+	"security.syslog.consecutive-failures": {
+		"defaultMessage": "Consecutive failures"
+	},
+	"security.syslog.description": {
+		"defaultMessage": "Ship security events to a syslog receiver such as Wazuh over TCP, optionally with TLS. Events are sent as RFC 5424 frames with a JSON body."
+	},
+	"security.syslog.disabled": {
+		"defaultMessage": "Syslog export is disabled. No events are being sent."
+	},
+	"security.syslog.enabled": {
+		"defaultMessage": "Enable syslog export"
+	},
+	"security.syslog.error.connection-refused": {
+		"defaultMessage": "The receiver refused the connection."
+	},
+	"security.syslog.error.connection-reset": {
+		"defaultMessage": "The receiver closed the connection."
+	},
+	"security.syslog.error.connection-timeout": {
+		"defaultMessage": "The connection to the receiver timed out."
+	},
+	"security.syslog.error.dns-failure": {
+		"defaultMessage": "The receiver hostname could not be resolved."
+	},
+	"security.syslog.error.export-operation-failed": {
+		"defaultMessage": "The export failed."
+	},
+	"security.syslog.error.host-unreachable": {
+		"defaultMessage": "The receiver is unreachable from this host."
+	},
+	"security.syslog.error.not-configured": {
+		"defaultMessage": "No receiver is configured."
+	},
+	"security.syslog.error.tls-certificate-rejected": {
+		"defaultMessage": "The receiver certificate was rejected."
+	},
+	"security.syslog.error.tls-handshake-failed": {
+		"defaultMessage": "The TLS handshake with the receiver failed."
+	},
+	"security.syslog.error.write-timeout": {
+		"defaultMessage": "The receiver stopped accepting data."
+	},
+	"security.syslog.events-dropped": {
+		"defaultMessage": "Events lost to retention before export"
+	},
+	"security.syslog.events-sent": {
+		"defaultMessage": "Events sent"
+	},
+	"security.syslog.events-skipped": {
+		"defaultMessage": "Events filtered out"
+	},
+	"security.syslog.facility": {
+		"defaultMessage": "Facility"
+	},
+	"security.syslog.framing": {
+		"defaultMessage": "Framing"
+	},
+	"security.syslog.framing-hint": {
+		"defaultMessage": "octet-counted is RFC 6587 and is what rsyslog expects. lf is newline delimited and is what Wazuh's own reader expects."
+	},
+	"security.syslog.host": {
+		"defaultMessage": "Receiver host"
+	},
+	"security.syslog.hostname-override": {
+		"defaultMessage": "Hostname override (optional)"
+	},
+	"security.syslog.include-operational": {
+		"defaultMessage": "Include operational Nginx error records"
+	},
+	"security.syslog.key-help": {
+		"defaultMessage": "PEM format. Stored write-only and never returned by the API."
+	},
+	"security.syslog.last-success": {
+		"defaultMessage": "Last delivery"
+	},
+	"security.syslog.never-delivered": {
+		"defaultMessage": "No successful delivery yet"
+	},
+	"security.syslog.pem-absent": {
+		"defaultMessage": "Not set"
+	},
+	"security.syslog.pem-clear": {
+		"defaultMessage": "Remove the stored value on save"
+	},
+	"security.syslog.pem-help": {
+		"defaultMessage": "PEM format. Only needed if the receiver requires client certificate authentication."
+	},
+	"security.syslog.pem-stored": {
+		"defaultMessage": "Stored, fingerprint {fingerprint}"
+	},
+	"security.syslog.pending": {
+		"defaultMessage": "Events waiting to be exported"
+	},
+	"security.syslog.port": {
+		"defaultMessage": "Receiver port"
+	},
+	"security.syslog.reset-cursor": {
+		"defaultMessage": "Cursor"
+	},
+	"security.syslog.reset-hint": {
+		"defaultMessage": "keep continues from where the exporter left off. now abandons the backlog and restarts from the newest event."
+	},
+	"security.syslog.send-test": {
+		"defaultMessage": "Send test message"
+	},
+	"security.syslog.severity-floor": {
+		"defaultMessage": "Minimum severity"
+	},
+	"security.syslog.status": {
+		"defaultMessage": "Delivery status"
+	},
+	"security.syslog.test-ok": {
+		"defaultMessage": "Test message delivered."
+	},
+	"security.syslog.testing": {
+		"defaultMessage": "Sending..."
+	},
+	"security.syslog.tls": {
+		"defaultMessage": "Use TLS"
+	},
+	"security.syslog.tls-servername": {
+		"defaultMessage": "TLS server name (optional)"
+	},
+	"security.syslog.tls-verify": {
+		"defaultMessage": "Verify the receiver certificate"
+	},
+	"security.syslog.tls-verify-warning": {
+		"defaultMessage": "Events will be sent over a connection that cannot be authenticated."
+	},
+	"security.syslog.wazuh-note": {
+		"defaultMessage": "Wazuh's own syslog listener is plaintext only. To use TLS, point this at an rsyslog or syslog-ng relay in front of Wazuh and set framing to octet-counted; to send directly to Wazuh, disable TLS and set framing to lf."
+	},
 	"security.time": {
 		"defaultMessage": "Time"
 	},

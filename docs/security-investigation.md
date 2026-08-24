@@ -96,6 +96,8 @@ The collector is bounded per cycle and pauses indexed ingestion when its configu
 | `SECURITY_EVENT_DATABASE_ESTIMATED_HIGH_WATER_BYTES` | `1073741824` | Database-storage pause threshold. NSPM measures table/index storage with the active driver and retains a conservative serialized-event estimate as fallback. |
 | `SECURITY_EVENT_DATABASE_HEADROOM_BYTES` | `67108864` | Reserved estimated headroom before ingestion pauses. |
 | `SECURITY_RAW_LOG_DISK_HIGH_WATER_PERCENT` | `90` | Filesystem-use percentage that pauses indexed ingestion and reports a warning. |
+| `SECURITY_SYSLOG_EXPORT_ENABLED` | `true` | Set to `false` to stop the syslog exporter regardless of its saved configuration. See [Syslog Export to a SIEM](src/advanced-config/syslog-export.md). |
+| `SYSLOG_HOSTNAME` | container hostname | HOSTNAME used in exported syslog frames when no override is configured. |
 
 Invalid numeric values fall back to their defaults. Capacity depends on URI/message length, request volume, database engine, and storage hardware. Measure the intended deployment rather than assuming homelab traffic is always small.
 

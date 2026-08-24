@@ -358,6 +358,19 @@ export interface SecurityLogPage { lines: SecurityLogLine[]; partial: boolean; s
 export interface SecurityNginxUpgrade { lastRunOn: string | null; hostsTotal: number; hostsUpgraded: number; hostsSkipped: number; hostsPending: number; reloadDeferred: boolean; lastErrorSummary: string | null; }
 export interface SecuritySettings { retentionDays: number; nginxUpgrade?: SecurityNginxUpgrade | null; }
 
+export type SyslogFraming = "octet-counted" | "lf";
+/**
+ * Certificate and key material is write-only. A read reports only that
+ * something is stored and a short fingerprint to identify it by, so the PEM
+ * itself is never in the browser.
+ */
+export interface SyslogPemInfo { present: boolean; fingerprint: string | null; }
+export interface SyslogExportState { lastEventId: number | null; lastAttemptOn: string | null; lastSuccessOn: string | null; lastErrorOn: string | null; lastErrorClass: string | null; consecutiveFailures: number; backoffUntilMs: number; eventsSent: number; eventsSkipped: number; eventsDropped: number; pendingEvents: number; }
+export interface SyslogExportConfig { enabled: boolean; host: string; port: number; framing: SyslogFraming; tlsEnabled: boolean; tlsVerify: boolean; tlsServername: string | null; appName: string; hostnameOverride: string | null; facility: number; severityFloor: SecuritySeverity; includeOperational: boolean; caCertificate: SyslogPemInfo; clientCertificate: SyslogPemInfo; clientKey: SyslogPemInfo; state: SyslogExportState; }
+/** Omit a PEM to leave it unchanged, send "" to clear it, send a PEM to replace it. */
+export interface SyslogExportUpdate { enabled: boolean; host: string; port: number; framing: SyslogFraming; tlsEnabled: boolean; tlsVerify: boolean; tlsServername: string | null; appName: string; hostnameOverride: string | null; facility: number; severityFloor: SecuritySeverity; includeOperational: boolean; caCertificate?: string; clientCertificate?: string; clientKey?: string; resetCursor?: "keep" | "now"; }
+export interface SyslogTestResult { ok: boolean; errorClass: string | null; }
+
 export interface SecurityEventFilters {
 	from?: string;
 	to?: string;

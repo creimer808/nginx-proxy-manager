@@ -1,5 +1,5 @@
 import * as api from "./base";
-import type { SecurityEvent, SecurityEventFilters, SecurityEventPage, SecurityFindingReport, SecurityLogFile, SecurityLogKind, SecurityLogPage, SecurityLogTarget, SecurityOverview, SecurityRange, SecurityRule, SecuritySettings } from "./models";
+import type { SecurityEvent, SecurityEventFilters, SecurityEventPage, SecurityFindingReport, SecurityLogFile, SecurityLogKind, SecurityLogPage, SecurityLogTarget, SecurityOverview, SecurityRange, SecurityRule, SecuritySettings, SyslogExportConfig, SyslogExportUpdate, SyslogTestResult } from "./models";
 
 const controller = (signal?: AbortSignal) => {
 	const value = new AbortController();
@@ -16,3 +16,7 @@ export const getSecurityLogFiles = async (target: SecurityLogTarget, kind: Secur
 export const getSecurityLogLines = async (params: { target: SecurityLogTarget; kind: SecurityLogKind; proxyHostId?: number; rotation?: string; cursor?: string; direction?: "forward" | "backward"; limit?: number; query?: string }, signal?: AbortSignal): Promise<SecurityLogPage> => api.get({ url: "/security/logs", params }, controller(signal));
 export const getSecuritySettings = async (signal?: AbortSignal): Promise<SecuritySettings> => api.get({ url: "/security/settings" }, controller(signal));
 export const updateSecuritySettings = async (retentionDays: number, signal?: AbortSignal): Promise<SecuritySettings> => api.put({ url: "/security/settings", data: { retentionDays } }, controller(signal));
+export const getSyslogExport = async (signal?: AbortSignal): Promise<SyslogExportConfig> => api.get({ url: "/security/syslog" }, controller(signal));
+export const updateSyslogExport = async (data: SyslogExportUpdate, signal?: AbortSignal): Promise<SyslogExportConfig> => api.put({ url: "/security/syslog", data }, controller(signal));
+/** Uses the stored configuration, so it tests what the exporter will actually do. */
+export const testSyslogExport = async (signal?: AbortSignal): Promise<SyslogTestResult> => api.post({ url: "/security/syslog/test" }, controller(signal));

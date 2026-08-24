@@ -5,6 +5,7 @@ import internalCertificate from "./internal/certificate.js";
 import internalIpRanges from "./internal/ip_ranges.js";
 import internalTrafficMetrics from "./internal/traffic-metrics.js";
 import internalSecurityEvents from "./internal/security-events.js";
+import internalSecuritySyslogExport from "./internal/security-syslog-export.js";
 import { global as logger } from "./logger.js";
 import { migrateUp } from "./migrate.js";
 import { getCompiledSchema } from "./schema/index.js";
@@ -33,6 +34,9 @@ async function appStart() {
 			// The collector is best-effort and handles its own failures so event
 			// ingestion can never prevent the management API from starting.
 			internalSecurityEvents.initTimer();
+			// Likewise best-effort: an unreachable or misconfigured SIEM must
+			// never keep the management API from starting.
+			internalSecuritySyslogExport.initTimer();
 
 			const server = app.listen(3000, () => {
 				logger.info(`Backend PID ${process.pid} listening on port 3000 ...`);

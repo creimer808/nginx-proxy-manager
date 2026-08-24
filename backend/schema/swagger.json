@@ -306,6 +306,13 @@
 			"get": { "$ref": "./paths/security/settings-get.json" },
 			"put": { "$ref": "./paths/security/settings-put.json" }
 		},
+		"/security/syslog": {
+			"get": { "$ref": "./paths/security/syslog-get.json" },
+			"put": { "$ref": "./paths/security/syslog-put.json" }
+		},
+		"/security/syslog/test": {
+			"post": { "$ref": "./paths/security/syslog-test-post.json" }
+		},
 		"/settings": {
 			"get": {
 				"$ref": "./paths/settings/get.json"

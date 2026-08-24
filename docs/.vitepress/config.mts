@@ -29,6 +29,7 @@ export default defineConfig({
 					{ text: "Screenshots", link: "/screenshots/" },
 					{ text: "Setup Instructions", link: "/setup/" },
 					{ text: "Advanced Configuration", link: "/advanced-config/" },
+					{ text: "Syslog Export to a SIEM", link: "/advanced-config/syslog-export" },
 					{ text: "Upgrading", link: "/upgrading/" },
 					{ text: "Frequently Asked Questions", link: "/faq/" },
 					{ text: "Certbot", link: "/certbot/" },
